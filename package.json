@@ -1,0 +1,30 @@
+{
+  "name": "justswapcli",
+  "version": "0.0.6",
+  "description": "",
+  "author": "pefish <pefish@qq.com>",
+  "dependencies": {
+    "@pefish/js-coin-trx": "^0.4.0",
+    "@pefish/js-node-assist": "^0.6.15",
+    "@pefish/js-util-starter": "^0.0.8"
+  },
+  "appName": "justswapcli",
+  "bin": {
+    "justswapcli": "app.js"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "start": "NODE_CONFIG=`pwd`/config/local.yaml NODE_SECRET=`pwd`/secret/local.yaml ts-node src/start.ts",
+    "test": "mocha --timeout 20000 --require ts-node/register src/**/*.test.ts",
+    "t": "mocha --timeout 20000 --require ts-node/register",
+    "docker": "docker build -t justswapcli .",
+    "prepublish": "yarn build"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^14.6.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
